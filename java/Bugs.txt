@@ -1,0 +1,9 @@
+﻿Bug Bloque 1
+
+int vida = 100.5; // error: float vida = 100.0;
+String nivel = 1; // error: int nivel = 1;
+
+
+Bug Bloque 2
+
+if (clase = "Guerrero") { ... } // error: if (string clase == "Guerrero") { ... }
