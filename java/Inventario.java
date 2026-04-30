@@ -3,8 +3,11 @@ import java.util.ArrayList;
 public class Inventario {
 
     public static void main(String[] args)
-
+    
     {
+        EnemigosBase e = new EnemigosBase();
+        PersonajeBase p = new PersonajeBase();
+
 
         ArrayList<String> inventario = new
 

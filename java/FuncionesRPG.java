@@ -1,24 +1,19 @@
 public class FuncionesRPG {
-
+    
     // Retorna el dano real (min 1)
 
     public static int calcularDano(int ataque, int defensa) {
 
-        int dano = ataque - defensa;
-
+        int dano = ataque - defensa ;
         return dano > 0 ? dano : 1;
 
     }
 
     // Cura sin pasar del maximo
 
-    public static double aplicarCuracion(
+    public static int aplicarCuracion(int vida, int cur, int max) {
 
-            double vida, double cur, double
-
-            max) {
-
-        double nueva = vida + cur;
+        int nueva = vida + cur;
 
         return nueva > max ? max : nueva;
 

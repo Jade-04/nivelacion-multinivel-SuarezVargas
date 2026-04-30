@@ -1,25 +1,20 @@
 import java.util.Scanner;
 
-public class EnemigoBase {
-
+public class EnemigosBase {
+        
     // Atributos del personaje
 
-    String nombre = "Sauro";
-    int nivel = 5;
-    double vida = 40.0;
-    double vidaMaxima = 100.0;
-    double mana = 120.0;
-    boolean estaVivo = true;
-    String clase = "Mago";
-    int puntosAtaque = 35;
-    int puntosDefensa = 10;
+    String [] nombre = {"Goblin","Orco", "Dragon "};
+    int [] vida = {40, 70, 120};
+    int [] Ataque = {8, 14, 25};
+    int [] Defensa = {0, 0, 0};
+    
 
     public static void main(String[] args) {
 
-        EnemigoBase e = new EnemigoBase();
+        EnemigosBase e = new EnemigosBase();
 
-        System.out.println(
-                e.nombre + " [" + e.clase + "] " + "Nv." + e.nivel + " | Vida: " + e.vida + " | Mana: " + e.mana);
+
 
         // Conversiones de tipo
 

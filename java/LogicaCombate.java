@@ -1,98 +1,80 @@
 
-
-
 public class LogicaCombate {
 
     public static void main(String[] args) {
         PersonajeBase p = new PersonajeBase();
-        EnemigoBase e = new EnemigoBase();
-        
-        double vida = 25.0; 
-        double vidaMax = 100.0;
-        String estado;
-        double pct = (vida / vidaMax) * 100;
-        double bonificacion = 0.0;
+        EnemigosBase e = new EnemigosBase();
+        FuncionesRPG f = new FuncionesRPG();
 
-        // Bonificacion por nivel
+        do {
+            int i = FuncionesRPG.calcularDano(p.Ataque, e.Defensa[0]);
+            System.out.println("Dano infligido: " + i);
+            e.vida[0] -= i;
+            System.out.println("Vida del enemigo: " + e.vida[0]);
+            int j = FuncionesRPG.calcularDano(e.Ataque[0], p.Defensa);
+            System.out.println("Dano recibido: " + j);
+            p.vida -= j;
+            System.out.println("Vida del personaje: " + p.vida);
+            if (e.vida[0] < 0) {
+                e.vida[0] = 0;
+            }
+            if (p.vida <= 0) {
+                System.out.println("Nos mormimos chamo");
 
-        if (p.nivel >= 5) {
+            } else if (e.vida[0] <= 0) {
+                System.out.println("El " + e.nombre[0] + " ha sido derrotado!");
+                int cura = 20;
+                p.vida = FuncionesRPG.aplicarCuracion(p.vida, cura, p.vidaMaxima);
+                System.out.println("Vida del personaje: " + p.vida);
 
-            bonificacion = 10.0;
+            }
+            int k = FuncionesRPG.calcularDano(p.Ataque, e.Defensa[1]);
+            System.out.println("Dano infligido: " + k);
+            e.vida[1] -= k;
+            System.out.println("Vida del enemigo: " + e.vida[1]);
+            int l = FuncionesRPG.calcularDano(e.Ataque[1], p.Defensa);
+            System.out.println("Dano recibido: " + l);
+            p.vida -= l;
+            System.out.println("Vida del personaje: " + p.vida);
+            if (e.vida[1] < 0) {
+                e.vida[1] = 0;
+            }
+            if (p.vida <= 0) {
+                System.out.println("Nos mormimos chamo");
 
-        } else {
+            } else if (e.vida[1] <= 0) {
+                System.out.println("El " + e.nombre[1] + " ha sido derrotado!");
+                int cura = 20;
+                p.vida = FuncionesRPG.aplicarCuracion(p.vida, cura, p.vidaMaxima);
+                System.out.println("Vida del personaje: " + p.vida);
 
-            bonificacion = 0.0;
-        }
+            }
 
-        // Vida enemigo
-        double vidaRestante = e.vida - (p.puntosAtaque + bonificacion);
-        System.out.println("Vida restante del enemigo: " + vidaRestante);
+        } while (e.vida[1] > 0 && p.vida > 0);
 
-        // Estado del personaje
+        do {
+            int o = FuncionesRPG.calcularDano(p.Ataque, e.Defensa[2]);
+            System.out.println("Dano infligido: " + o);
+            e.vida[2] -= o;
+            System.out.println("Vida del enemigo: " + e.vida[2]);
+            int m = FuncionesRPG.calcularDano(e.Ataque[2], p.Defensa);
+            System.out.println("Dano recibido: " + m);
+            p.vida -= m;
+            System.out.println("Vida del personaje: " + p.vida);
+            if (e.vida[2] < 0) {
+                e.vida[2] = 0;
+            }
+            if (p.vida <= 0) {
+                System.out.println("Nos mormimos chamo");
 
-        if (vidaRestante <= 0) {
+            } else if (e.vida[2] <= 0) {
+                System.out.println("El " + e.nombre[2] + " ha sido derrotado!");
+                int cura = 20;
+                p.vida = FuncionesRPG.aplicarCuracion(p.vida, cura, p.vidaMaxima);
+                System.out.println("Vida del personaje: " + p.vida);
 
-            System.out.println("Enemigo derrotado! +50xp");
-
-        } else if (vidaRestante <= 20) {
-
-            System.out.println("Enemigo en estado critico!");
-
-        } else {
-
-            System.out.println("Enemigo resiste" + " con " + vidaRestante + " de vida.");
-        }
-
-        if (pct <= 0) {
-
-            estado = "MUERTO";
-
-        } else if (pct <= 25) {
-
-            estado = "CRITICO";
-
-        } else if (pct <= 50) {
-
-            estado = "HERIDO";
-
-        } else if (pct <= 75) {
-
-            estado = "ESTABLE";
-
-        } else {
-
-            estado = "SALUDABLE";
-
-        }
-
-        System.out.println("Estado: " +
-
-                estado);
-
-        String clase = "Mago";
-        int nivelHabilidad = 3;
-
-        String tipoAtaque = switch (clase) {
-
-            case "Guerrero" -> "Espada";
-
-            case "Mago" -> "Hechizo";
-
-            case "Arquero" -> "Flecha";
-
-            default -> "Puño";
-        };
-
-        // Condicion compuesta
-        boolean puedeUsarMagia = clase.equals("Mago") && nivelHabilidad >= 3;
-
-        if (puedeUsarMagia) {
-
-            System.out.println("Bola de fuego!");
-
-        } else {
-            System.out.println(tipoAtaque + " basico");
-        }
+            }
+        } while (e.vida [2] > 0 && p.vida > 0);
 
     }
 }

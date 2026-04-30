@@ -5,14 +5,14 @@ public class PersonajeBase {
     // Atributos del personaje
 
     String nombre = "Gandalf";
-    int nivel = 5;
-    double vida = 80.0;
-    double vidaMaxima = 100.0;
+    int nivel = 2;
+    int vida = 80;
+    int vidaMaxima = 80;
     double mana = 120.0;
     boolean estaVivo = true;
-    String clase = "Mago";
-    int puntosAtaque = 15;
-    int puntosDefensa = 10;
+    String clase = "Guerrero";
+    int Ataque = 18;
+    int Defensa = 4;
 
     public static void main(String[] args) {
 
